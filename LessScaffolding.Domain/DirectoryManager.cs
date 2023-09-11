@@ -12,7 +12,12 @@ namespace LessScaffolding.Domain
 {
     public class DirectoryManager
     {
-        private const string BaseDirectory = "C:\\Repos\\LessScaffolding\\LessScaffolding.Output\\Less";
+        private readonly string? _baseDirectory;
+
+        public DirectoryManager(LessConfig lessConfig)
+        {
+            _baseDirectory = lessConfig.BaseDirectory;
+        }
 
         public void ParseYamlAndCreateStructure(string yamlString)
         {
@@ -68,7 +73,7 @@ namespace LessScaffolding.Domain
 
         public void RecursiveDirectoryCreator(LessDirectory lessDirectory)
         {
-            var directoryPath = $"{BaseDirectory}{lessDirectory.Name}";
+            var directoryPath = $"{_baseDirectory}{lessDirectory.Name}";
            
 
             Directory.CreateDirectory(directoryPath);
@@ -77,7 +82,7 @@ namespace LessScaffolding.Domain
             {
                 var templateString = File.ReadAllText("Templates/index.js");
 
-                var filePath = $"{BaseDirectory}{lessFile.Name}";
+                var filePath = $"{_baseDirectory}{lessFile.Name}";
 
                 if (!File.Exists(filePath))
                 {

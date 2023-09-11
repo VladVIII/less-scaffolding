@@ -8,11 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Sample.yaml" />
+    <None Remove="Templates\index.js" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Sample.yaml" />
+    <EmbeddedResource Include="Templates\index.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

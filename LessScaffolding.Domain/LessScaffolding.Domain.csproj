@@ -7,18 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Templates\index.js" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.OpenApi" Version="1.6.6" />
     <PackageReference Include="Microsoft.OpenApi.Readers" Version="1.6.6" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Templates\index.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

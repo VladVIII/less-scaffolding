@@ -15,7 +15,10 @@ namespace LessScaffolding.Tests
         {
             var read = File.ReadAllText("Sample.yaml");
 
-            var parser = new DirectoryManager();
+            var parser = new DirectoryManager(new LessConfig()
+            {
+                BaseDirectory = "C:\\Repos\\LessScaffolding\\LessScaffolding.Output\\Less"
+            });
 
             parser.ParseYamlAndCreateStructure(read);
         }
